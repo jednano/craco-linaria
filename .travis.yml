@@ -14,3 +14,4 @@ script:
 
 after_success:
   - npx codecov -f coverage/lcov.info
+  - npx semantic-release

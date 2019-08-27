@@ -1,4 +1,5 @@
 {
+  "commands-show-output": false,
   "list-marker-space": {
     "ol_multi": 2,
     "ol_single": 2,

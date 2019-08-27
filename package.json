@@ -1,18 +1,18 @@
 {
-  "name": "private-node-starter",
-  "private": true,
+  "name": "craco-linaria",
   "version": "1.0.0",
-  "description": "Starter project for Node.js/TypeScript projects.",
+  "description": "A craco plugin to use Linaria zero-runtime CSS in JS library in a create react app.",
   "keywords": [
-    "node",
-    "typescript",
-    "starter"
+    "craco",
+    "plugin",
+    "linaria",
+    "cra",
+    "create-react-app"
   ],
+  "main": "src/index.js",
   "scripts": {
     "clean": "rimraf coverage *.log*",
-    "lint": "eslint src/**/*.ts",
-    "check-types": "tsc --noEmit",
-    "start": "ts-node src/index.ts",
+    "lint": "eslint src/**/*.js",
     "pretest": "npm run clean && npm run lint",
     "test": "jest --watch",
     "precover": "npm run clean && npm run lint",
@@ -23,7 +23,7 @@
     "hooks": {
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "tsc --noEmit && npm run cover"
+      "pre-push": "npm run cover"
     }
   },
   "commitlint": {
@@ -57,23 +57,6 @@
         "statements": 100
       }
     },
-    "globals": {
-      "ts-jest": {
-        "diagnostics": {
-          "//": "https://github.com/kulshekhar/ts-jest/issues/748#issuecomment-423528659",
-          "ignoreCodes": [
-            151001
-          ]
-        }
-      }
-    },
-    "moduleNameMapper": {
-      "^src/(.*)$": "<rootDir>/src/$1"
-    },
-    "modulePathIgnorePatterns": [
-      "node_modules"
-    ],
-    "preset": "ts-jest",
     "testEnvironment": "node",
     "verbose": true,
     "watchPlugins": [
@@ -82,7 +65,7 @@
     ]
   },
   "lint-staged": {
-    "*.ts": [
+    "*.js": [
       "eslint --fix",
       "prettier --write",
       "git add"
@@ -94,37 +77,39 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jedmao/private-node-starter.git"
+    "url": "git+https://github.com/jedmao/craco-linaria.git"
   },
   "bugs": {
-    "url": "https://github.com/jedmao/private-node-starter/issues"
+    "url": "https://github.com/jedmao/craco-linaria/issues"
   },
-  "homepage": "https://github.com/jedmao/private-node-starter#readme",
-  "author": "Jed Mao <jedmao@outlook.com>",
+  "homepage": "https://github.com/jedmao/craco-linaria#readme",
+  "author": "Jed Mao (https://github.com/jedmao)",
   "license": "MIT",
-  "dependencies": {
-    "ts-node": "^8.3.0",
-    "tslib": "^1.10.0",
-    "typescript": "^3.5.3"
+  "release": {
+    "extends": "@jedmao/semantic-release-npm-github-config",
+    "branch": "master"
+  },
+  "peerDependencies": {
+    "@craco/craco": "^5",
+    "react-scripts": "^3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@types/jest": "^24.0.17",
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
-    "@typescript-eslint/parser": "^1.13.0",
+    "@craco/craco": "^5.3.0",
+    "@jedmao/semantic-release-npm-github-config": "^1.0.6",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.0.0",
+    "eslint": "^6.2.2",
+    "eslint-config-prettier": "^6.1.0",
     "eslint-config-xo": "^0.26.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^3.0.3",
-    "jest": "^24.8.0",
-    "jest-watch-typeahead": "^0.3.1",
-    "lint-staged": "^9.2.1",
+    "husky": "^3.0.4",
+    "jest": "^24.9.0",
+    "jest-watch-typeahead": "^0.4.0",
+    "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
-    "rimraf": "^2.6.3",
-    "ts-jest": "^24.0.2"
+    "rimraf": "^3.0.0",
+    "semantic-release": "^15.13.24"
   }
 }

@@ -1,5 +1,38 @@
-# private-node-starter
+# craco-linaria
 
-[![Travis Build Status](https://travis-ci.com/jedmao/private-node-starter.svg?branch=master)](https://travis-ci.com/jedmao/private-node-starter)
-[![codecov](https://codecov.io/gh/jedmao/private-node-starter/branch/master/graph/badge.svg)](https://codecov.io/gh/jedmao/private-node-starter)
+[![Travis Build Status](https://travis-ci.com/jedmao/craco-linaria.svg?branch=master)](https://travis-ci.com/jedmao/craco-linaria)
+[![codecov](https://codecov.io/gh/jedmao/craco-linaria/branch/master/graph/badge.svg)](https://codecov.io/gh/jedmao/craco-linaria)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
+A [craco](https://www.npmjs.com/package/@craco/craco) plugin to use [Linaria][]
+zero-runtime CSS in JS library in a create react app.
+
+## Installation
+
+First, follow craco's
+[installation instructions](https://github.com/sharegate/craco/blob/master/packages/craco/README.md#installation).
+
+Then, install `craco-linaria`:
+
+```bash
+$ npm install --save craco-linaria
+```
+
+## Usage
+
+```js
+/* craco.config.js */
+const CracoLinariaPlugin = require('craco-linaria')
+
+module.exports = {
+  plugins: [{ plugin: CracoLinariaPlugin }],
+}
+```
+
+## Git Ignore
+
+This plugin stores [Linaria][] cache in `src/.linaria_cache`, so you might want
+to add that path to your [`.gitignore`](https://git-scm.com/docs/gitignore)
+file.
+
+[linaria]: https://linaria.now.sh/
