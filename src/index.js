@@ -3,6 +3,7 @@ const {
 	loaderByName,
 	throwUnexpectedConfigError,
 } = require('@craco/craco')
+const cosmiconfig = require('cosmiconfig')
 
 module.exports = {
 	overrideJestConfig,
@@ -16,7 +17,7 @@ function overrideJestConfig({ jestConfig }) {
 	return jestConfig
 }
 
-function overrideWebpackConfig({ context, webpackConfig }) {
+function overrideWebpackConfig({ context, pluginOptions, webpackConfig }) {
 	const throwError = (message, githubIssueQuery) =>
 		throwUnexpectedConfigError({
 			packageName: 'craco-linaria',
@@ -52,15 +53,21 @@ function overrideWebpackConfig({ context, webpackConfig }) {
 		)
 	}
 
-	oneOfRules.oneOf[1] = transformBabelLoader(babelLoaderMatch.loader)
+	oneOfRules.oneOf[1] = transformBabelLoader(
+		babelLoaderMatch.loader,
+		pluginOptions,
+	)
 
 	return webpackConfig
 }
 
-function transformBabelLoader(loader) {
+function transformBabelLoader(loader, pluginOptions) {
 	const options = loader.options || {}
 	const presets = options.presets || []
 	options.presets = presets
+	const { babelOptions, ...linariaOptions } =
+		(pluginOptions || cosmiconfig('linaria').searchSync() || {}).config || {}
+
 	return {
 		test: loader.test,
 		include: loader.include,
@@ -78,7 +85,9 @@ function transformBabelLoader(loader) {
 					sourceMap: process.env.NODE_ENV !== 'production',
 					babelOptions: {
 						presets,
+						...babelOptions,
 					},
+					...linariaOptions,
 				},
 			},
 		],
