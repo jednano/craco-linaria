@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/jedmao/craco-linaria/compare/v1.0.1...v1.1.0) (2019-08-27)
+
+
+### Features
+
+* support configuration options ([3f01ab6](https://github.com/jedmao/craco-linaria/commit/3f01ab6))
+
 ## [1.0.1](https://github.com/jedmao/craco-linaria/compare/v1.0.0...v1.0.1) (2019-08-27)
 
 
