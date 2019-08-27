@@ -25,9 +25,21 @@ $ npm install --save-dev craco-linaria linaria
 const CracoLinariaPlugin = require('craco-linaria')
 
 module.exports = {
-  plugins: [{ plugin: CracoLinariaPlugin }],
+  plugins: [
+    {
+      plugin: CracoLinariaPlugin,
+      options: {
+        // Linaria options
+      },
+    },
+  ],
 }
 ```
+
+You can specify
+[Linaria options](https://github.com/callstack/linaria/blob/master/docs/CONFIGURATION.md#options)
+inline (as above) or it will be picked up from any of the
+[supported configuration paths](https://github.com/callstack/linaria/blob/master/docs/CONFIGURATION.md#configuration).
 
 ## Git Ignore
 
