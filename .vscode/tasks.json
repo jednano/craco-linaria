@@ -13,16 +13,6 @@
     },
     {
       "type": "npm",
-      "script": "check-types",
-      "problemMatcher": ["$tsc"]
-    },
-    {
-      "type": "npm",
-      "script": "start",
-      "problemMatcher": ["$tsc-watch"]
-    },
-    {
-      "type": "npm",
       "script": "test",
       "group": {
         "kind": "test",
