@@ -90,8 +90,9 @@
     "branch": "master"
   },
   "peerDependencies": {
-    "@craco/craco": "^5",
-    "react-scripts": "^3"
+    "@craco/craco": "5.x",
+    "linaria": "1.x",
+    "react-scripts": "3.x"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",

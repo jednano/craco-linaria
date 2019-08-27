@@ -12,10 +12,10 @@ zero-runtime CSS in JS library in a create react app.
 First, follow craco's
 [installation instructions](https://github.com/sharegate/craco/blob/master/packages/craco/README.md#installation).
 
-Then, install `craco-linaria`:
+Then, install `craco-linaria` and [Linaria][]:
 
 ```bash
-$ npm install --save craco-linaria
+$ npm install --save-dev craco-linaria linaria
 ```
 
 ## Usage
