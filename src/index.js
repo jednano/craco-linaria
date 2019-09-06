@@ -75,6 +75,7 @@ function transformBabelLoader(loader, pluginOptions) {
 			{
 				loader: loader.loader,
 				options: {
+					...options,
 					presets: presets.concat('linaria/babel'),
 				},
 			},
