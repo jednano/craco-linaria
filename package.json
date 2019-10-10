@@ -1,6 +1,6 @@
 {
   "name": "craco-linaria",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A craco plugin to use Linaria zero-runtime CSS in JS library in a create react app.",
   "keywords": [
     "craco",
