@@ -73,7 +73,7 @@ describe('craco-linaria plugin', () => {
 			                "loader": "/babel-loader/",
 			                "options": Object {
 			                  "presets": Array [
-			                    "@linaria",
+			                    "@linaria/babel-preset",
 			                  ],
 			                },
 			              },
