@@ -73,12 +73,12 @@ describe('craco-linaria plugin', () => {
 			                "loader": "/babel-loader/",
 			                "options": Object {
 			                  "presets": Array [
-			                    "linaria/babel",
+			                    "@linaria",
 			                  ],
 			                },
 			              },
 			              Object {
-			                "loader": "linaria/loader",
+			                "loader": "@linaria/webpack-loader",
 			                "options": Object {
 			                  "babelOptions": Object {
 			                    "presets": Array [],

@@ -66,7 +66,7 @@ function transformBabelLoader(loader, pluginOptions) {
 	const presets = options.presets || []
 	options.presets = presets
 	const { babelOptions, ...linariaOptions } =
-		pluginOptions || (cosmiconfig('linaria').searchSync() || {}).config || {}
+		pluginOptions || (cosmiconfig('@linaria').searchSync() || {}).config || {}
 
 	return {
 		test: loader.test,
@@ -76,11 +76,11 @@ function transformBabelLoader(loader, pluginOptions) {
 				loader: loader.loader,
 				options: {
 					...options,
-					presets: presets.concat('linaria/babel'),
+					presets: presets.concat('@linaria'),
 				},
 			},
 			{
-				loader: 'linaria/loader',
+				loader: '@linaria/webpack-loader',
 				options: {
 					cacheDirectory: 'src/.linaria_cache',
 					sourceMap: process.env.NODE_ENV !== 'production',
