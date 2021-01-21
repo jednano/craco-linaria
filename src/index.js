@@ -66,7 +66,9 @@ function transformBabelLoader(loader, pluginOptions) {
 	const presets = options.presets || []
 	options.presets = presets
 	const { babelOptions, ...linariaOptions } =
-		pluginOptions || (cosmiconfig('@linaria').searchSync() || {}).config || {}
+		pluginOptions ||
+		(cosmiconfig('@linaria/babel-preset').searchSync() || {}).config ||
+		{}
 
 	return {
 		test: loader.test,
@@ -76,7 +78,7 @@ function transformBabelLoader(loader, pluginOptions) {
 				loader: loader.loader,
 				options: {
 					...options,
-					presets: presets.concat('@linaria'),
+					presets: presets.concat('@linaria/babel-preset'),
 				},
 			},
 			{
