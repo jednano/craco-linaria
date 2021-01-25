@@ -10,7 +10,7 @@ describe('craco-linaria plugin', () => {
 			).toMatchInlineSnapshot(`
 			Object {
 			  "transform": Object {
-			    "^.+\\\\.(js|jsx|ts|tsx)$": "${process.cwd()}/src/babelTransform.js",
+			    "^.+\\\\.(js|jsx|mjs|cjs|ts|tsx)$": "${process.cwd()}/src/babelTransform.js",
 			  },
 			}
 		`)
@@ -73,12 +73,12 @@ describe('craco-linaria plugin', () => {
 			                "loader": "/babel-loader/",
 			                "options": Object {
 			                  "presets": Array [
-			                    "linaria/babel",
+			                    "@linaria/babel-preset",
 			                  ],
 			                },
 			              },
 			              Object {
-			                "loader": "linaria/loader",
+			                "loader": "@linaria/webpack-loader",
 			                "options": Object {
 			                  "babelOptions": Object {
 			                    "presets": Array [],

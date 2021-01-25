@@ -1,6 +1,6 @@
 {
   "name": "craco-linaria",
-  "version": "1.1.2",
+  "version": "3.0.4",
   "description": "A craco plugin to use Linaria zero-runtime CSS in JS library in a create react app.",
   "keywords": [
     "craco",
@@ -91,7 +91,10 @@
   },
   "peerDependencies": {
     "@craco/craco": "5.x",
-    "linaria": "1.x",
+    "@linaria/babel-preset": "3.x",
+    "@babel/preset-typescript": "7.x",
+    "@linaria/core": "3.x",
+    "@linaria/webpack-loader": "3.x",
     "react-scripts": "3.x"
   },
   "dependencies": {

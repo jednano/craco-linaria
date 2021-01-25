@@ -15,7 +15,11 @@ First, follow craco's
 Then, install `craco-linaria` and [Linaria][]:
 
 ```bash
-$ npm install --save-dev craco-linaria linaria
+$ yarn add -D craco-linaria @linaria/core @linaria/babel-preset @linaria/webpack-loader
+
+// or
+
+$ npm install --save-dev craco-linaria @linaria/core @linaria/babel-preset @linaria/webpack-loader
 ```
 
 ## Usage
