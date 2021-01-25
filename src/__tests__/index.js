@@ -10,7 +10,7 @@ describe('craco-linaria plugin', () => {
 			).toMatchInlineSnapshot(`
 			Object {
 			  "transform": Object {
-			    "^.+\\\\.(js|jsx|ts|tsx)$": "${process.cwd()}/src/babelTransform.js",
+			    "^.+\\\\.(js|jsx|mjs|cjs|ts|tsx)$": "${process.cwd()}/src/babelTransform.js",
 			  },
 			}
 		`)
