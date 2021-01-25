@@ -11,7 +11,7 @@ module.exports = {
 }
 
 function overrideJestConfig({ jestConfig }) {
-	jestConfig.transform['^.+\\.(js|jsx|ts|tsx)$'] = require.resolve(
+	jestConfig.transform['^.+\\.(js|jsx|mjs|cjs|ts|tsx)$'] = require.resolve(
 		'./babelTransform.js',
 	)
 	return jestConfig
