@@ -58,6 +58,10 @@
       }
     },
     "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "<rootDir>/.history/",
+      "<rootDir>/node_modules/"
+    ],
     "verbose": true,
     "watchPlugins": [
       "jest-watch-typeahead/filename",
