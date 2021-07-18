@@ -1,6 +1,6 @@
 {
   "name": "craco-linaria",
-  "version": "1.1.2",
+  "version": "2.0.0",
   "description": "A craco plugin to use Linaria zero-runtime CSS in JS library in a create react app.",
   "keywords": [
     "craco",
@@ -58,6 +58,10 @@
       }
     },
     "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "<rootDir>/.history/",
+      "<rootDir>/node_modules/"
+    ],
     "verbose": true,
     "watchPlugins": [
       "jest-watch-typeahead/filename",
@@ -90,30 +94,30 @@
     "branch": "master"
   },
   "peerDependencies": {
-    "@craco/craco": "5.x",
-    "linaria": "1.x",
-    "react-scripts": "3.x"
+    "@craco/craco": "6.x",
+    "linaria": "2.x",
+    "react-scripts": "4.x"
   },
   "dependencies": {
     "cosmiconfig": "^5.2.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^8.1.0",
-    "@craco/craco": "^5.3.0",
-    "@jedmao/semantic-release-npm-github-config": "^1.0.6",
-    "commitizen": "^4.0.3",
-    "cz-conventional-changelog": "^3.0.2",
-    "eslint": "^6.2.2",
-    "eslint-config-prettier": "^6.1.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@craco/craco": "^6.2.0",
+    "@jedmao/semantic-release-npm-github-config": "^1.0.9",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-config-xo": "^0.26.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^3.0.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^3.1.0",
     "jest": "^24.9.0",
-    "jest-watch-typeahead": "^0.4.0",
-    "lint-staged": "^9.2.5",
-    "prettier": "^1.18.2",
-    "rimraf": "^3.0.0",
-    "semantic-release": "^15.13.24"
+    "jest-watch-typeahead": "^0.4.2",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^15.14.0"
   }
 }

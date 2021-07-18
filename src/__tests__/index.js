@@ -2,15 +2,27 @@ const { overrideJestConfig, overrideWebpackConfig } = require('..')
 
 describe('craco-linaria plugin', () => {
 	describe(overrideJestConfig.name, () => {
+		it('throws if missing babel transform key', () => {
+			expect(() => {
+				overrideJestConfig({ jestConfig: { transform: {} } })
+			}).toThrow(
+				`Can't find babel transform key '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$' in Jest config's 'transform' property!`,
+			)
+		})
+
 		it('adds babel transform script to jestConfig', () => {
 			expect(
 				overrideJestConfig({
-					jestConfig: { transform: {} },
+					jestConfig: {
+						transform: {
+							'^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': 'some-path-here.js',
+						},
+					},
 				}),
 			).toMatchInlineSnapshot(`
 			Object {
 			  "transform": Object {
-			    "^.+\\\\.(js|jsx|ts|tsx)$": "${process.cwd()}/src/babelTransform.js",
+			    "^.+\\\\.(js|jsx|mjs|cjs|ts|tsx)$": "${process.cwd()}/src/babelTransform.js",
 			  },
 			}
 		`)

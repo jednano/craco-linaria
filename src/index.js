@@ -10,22 +10,31 @@ module.exports = {
 	overrideWebpackConfig,
 }
 
+const throwError = (message, githubIssueQuery) =>
+	throwUnexpectedConfigError({
+		packageName: 'craco-linaria',
+		githubRepo: 'jedmao/craco-linaria',
+		message,
+		githubIssueQuery,
+	})
+
+const babelTransformKey = '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$'
+
 function overrideJestConfig({ jestConfig }) {
-	jestConfig.transform['^.+\\.(js|jsx|ts|tsx)$'] = require.resolve(
+	if (!(babelTransformKey in jestConfig.transform)) {
+		throwError(
+			`Can't find babel transform key '${babelTransformKey}' in Jest config's 'transform' property!`,
+			'jest+transform',
+		)
+	}
+
+	jestConfig.transform[babelTransformKey] = require.resolve(
 		'./babelTransform.js',
 	)
 	return jestConfig
 }
 
 function overrideWebpackConfig({ context, pluginOptions, webpackConfig }) {
-	const throwError = (message, githubIssueQuery) =>
-		throwUnexpectedConfigError({
-			packageName: 'craco-linaria',
-			githubRepo: 'jedmao/craco-linaria',
-			message,
-			githubIssueQuery,
-		})
-
 	if (!webpackConfig.module) {
 		throwError(
 			`Can't find 'module' key in the ${context.env} webpack config!`,
